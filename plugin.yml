@@ -1,0 +1,9 @@
+---
+name: Tag
+main: xtakumatutix\tag\Main
+version: 1.0.0
+api: 3.0.0
+commands:
+  tag:
+    description: 称号
+...
