@@ -10,9 +10,13 @@ use xtakumatutix\tag\Main;
 
 Class TagForm implements Form
 {
+    public function __construct(Main $Main)
+    { 
+        $this->Main = $Main;
+    }
+
     public function handleResponse(Player $player, $data): void
     {
-        // TODO: Implement handleResponse() method.
         if ($data === null){
             return;
         }
@@ -22,21 +26,23 @@ Class TagForm implements Form
         if (!$mymoney < 1500) {
             if (!$length < 12) {
                 if ($player->isOp()){
-                    $player->sendMessage("称号を " . $data[0]);
+                    $player->sendMessage("称号を「".$data[0]."」にしました");
                     $player->setDisplayName("[STAFF][".$data[0]."] ".$name);
-                    Main::$this->config->set($name, $data[0]);
-                    Main::$this->config->save();
+                    $this->Main->config->set($name, $data[0]);
+                    $this->Main->config->save();
                 }else{
                 $player->sendMessage("称号を " . $data[0]);
                 $player->setDisplayName("[".$data[0]."] ".$name);
-                Main::$this->config->set($name, $data[0]);
-                Main::$this->config->save();
+                $this->Main->config->set($name, $data[0]);
+                $this->Main->config->save();
                 }
             } else {
                 $player->sendMessage("文字があかん");
+                return;
             }
         }else{
             $player->sendMessage("お金が足りない");
+            return;
         }
     }
 
@@ -48,7 +54,9 @@ Class TagForm implements Form
           'content' => [
               [
                   'type' => 'input',
-                  'text' => '入力して'
+                  'text' => '称号を設定できます。
+                  文字は12字以内でのみ可能です
+                  ※不適切な単語などが見つかった場合処置を取らせていただきます'
               ]
           ]
       ];

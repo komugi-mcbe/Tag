@@ -22,7 +22,7 @@ Class Main extends PluginBase
         if(!($sender instanceof Player)){
             return true;
         }
-        $sender->sendForm(new TagForm());
+        $sender->sendForm(new TagForm($this));
         return true;
     }
 }

@@ -4,7 +4,6 @@ namespace xtakumatutix\tag;
 
 use pocketmine\event\Listener;
 use pocketmine\event\player\PlayerJoinEvent;
-use onebone\economyapi\EconomyAPI;
 use pocketmine\Player;
 
 class EventListener implements Listener 
