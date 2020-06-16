@@ -6,7 +6,7 @@ use pocketmine\event\Listener;
 use pocketmine\event\player\PlayerJoinEvent;
 use pocketmine\Player;
 
-class EventListener implements Listener 
+class EventListener implements Listener
 {
     private $Main;
 
@@ -20,15 +20,15 @@ class EventListener implements Listener
         $player = $event->getPlayer();
         $name = $player->getName();
         $config = $this->Main->config;
-        if($config->exists($name)) {
+        if ($config->exists($name)) {
             $tag = $config->get($name);
             if ($player->isOp()) {
-                $player->setDisplayName("[STAFF][" . $tag . "] " . $name);
+                $player->setDisplayName("§6[§eSTAFF§6]§b[§r" . $tag . "§b] §r" . $name);
             } else {
-                $player->setDisplayName("[" . $tag . "] " . $name);
+                $player->setDisplayName("§b[§r" . $tag . "§b] §r" . $name);
             }
-        }else{
-            $player->setDisplayName("[初入店] ".$name);
+        } else {
+            $player->setDisplayName("§b[§r初入店§b] §r" . $name);
         }
     }
 }

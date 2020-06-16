@@ -8,7 +8,7 @@ use pocketmine\plugin\PluginBase;
 use pocketmine\utils\Config;
 use pocketmine\Player;
 
-Class Main extends PluginBase
+class Main extends PluginBase
 {
     public function onEnable()
     {
@@ -19,7 +19,7 @@ Class Main extends PluginBase
 
     public function onCommand(CommandSender $sender, Command $command, string $label, array $args): bool
     {
-        if(!($sender instanceof Player)){
+        if (!($sender instanceof Player)) {
             return true;
         }
         $sender->sendForm(new TagForm($this));
