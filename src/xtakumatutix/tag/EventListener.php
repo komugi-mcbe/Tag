@@ -23,7 +23,7 @@ class EventListener implements Listener
         if ($config->exists($name)) {
             $tag = $config->get($name);
             if ($player->isOp()) {
-                $player->setDisplayName("§6[§eSTAFF§6]§b[§r" . $tag . "§b] §r" . $name);
+                $player->setDisplayName("§6[§e⚫]§b[§r" . $tag . "§b] §r" . $name);
             } else {
                 $player->setDisplayName("§b[§r" . $tag . "§b] §r" . $name);
             }
